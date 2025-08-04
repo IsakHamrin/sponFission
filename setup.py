@@ -9,7 +9,7 @@ setup(
     ],
     author='Isak Hamrin',
     description='Estimate spontaneous fission rates for materials',
-    url='https://github.com/yourusername/spontaneousfission',
+    url='https://github.com/IsakHamrin/sponFission',
     classifiers=[
         'Programming Language :: Python :: 3',
         'Operating System :: OS Independent',
