@@ -11,8 +11,7 @@ Python package to estimate spontaneous fission rates of materials based on nucli
 
 ## Installation
 
-```bash
-pip install spontaneousfission
+Clone repo and install requirements:
 
 ```bash
 pip install -r requirements.txt
