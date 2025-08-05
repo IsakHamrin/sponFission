@@ -39,12 +39,12 @@
 # print("Spontaneous fission rate:", m.get_sf(), "fissions/s")
 
 import unittest
-from material import Material 
+import sponFission as sf
 # import spontaneousfission as sf  # your package name here
 
 class TestSpontaneousFission(unittest.TestCase):
     def test_serpent_example(self):
-        mat = Material()
+        mat = sf.Material()
         mat.set_volume(1.0)
         mat.set_absolute(True)  # Indicate absolute number densities
         mat.set_density(10.5, 'g/cm3')

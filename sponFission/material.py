@@ -1,5 +1,5 @@
-from data import sf_data
-from data import molar_masses
+from .data import sf_data, molar_masses
+from .utils import add_nuclide_data
 import numpy as np
 
 
@@ -84,7 +84,7 @@ class Material:
 
     def set_absolute(self, absolute: bool):
         """
-        Method to enable absolute units (number densities) (optional)
+        Method to enable absolute units (number densities in barn-1cm-1) (optional)
 
         Parameters
         ------------
@@ -141,39 +141,3 @@ class Material:
             return sf_tot  # fissions/s/cm³
         else:
             return sf_tot * self.volume  # fissions/s
-        
-    def add_nuclide_data(self, name:str, half_life:int, sf_branching_ratio:float):
-        """
-        Method to add a new nuclide half time and spontaneous fission data
-
-        Parameters
-        ------------
-        name: str
-            The name of the nuclide
-        half_life: int
-            The half life of the nuclide in seconds
-        sf_branching_ratio: float
-            The spontaneous fission branching ratio for the nuclide
-        """
-        sf_data[name] = {'half_life':half_life, 
-                         'sf_branching_ratio':sf_branching_ratio}
-
-    def add_molar_mass(self, name:str, M:float):
-        """
-        Method to add a new nuclides molar mass
-        Parameters
-        ------------
-        name: str
-            The name of the nuclide
-        M: float
-            The molar mass of the nuclide in g/mol
-        """
-        molar_masses[name] = M
-
-
-
-# test = Material()
-# test.add_nuclide('U238', 1)
-# test.set_density(1.5, 'g/cm3')
-
-# print(test.get_sf())
