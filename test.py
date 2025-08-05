@@ -46,7 +46,7 @@ class TestSpontaneousFission(unittest.TestCase):
     def test_serpent_example(self):
         mat = sf.Material()
         mat.set_volume(1.0)
-        mat.set_absolute(True)  # Indicate absolute number densities
+        mat.set_number_densities(True)  # Indicate absolute number densities
         mat.set_density(10.5, 'g/cm3')
 
         # Add nuclides with atomic densities to get atoms/cm³

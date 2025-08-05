@@ -27,7 +27,7 @@ class Material:
         self.density = 0
         # self.unit = ''
         self.volume = None
-        self.absolute = False
+        self.number_densities_on = False
 
     def add_nuclide(self, name:str, atomic_fraction:float):
         """
@@ -82,7 +82,7 @@ class Material:
         else:
             raise Exception('Unsupported volume unit, please select cm3 (default) or m3')
 
-    def set_absolute(self, absolute: bool):
+    def set_number_densities(self, on: bool):
         """
         Method to enable absolute units (number densities in barn-1cm-1) (optional)
 
@@ -91,7 +91,7 @@ class Material:
         absolute: bool
             True if number densities should be used or atmic fractions otherwise (default)
         """
-        self.absolute = absolute
+        self.number_densities_on = on
 
     def get_sf(self):
         """
@@ -104,7 +104,7 @@ class Material:
         """
         total_fraction = sum(self.atomic_fractions)
         sf_tot = 0
-        if self.absolute == False:
+        if self.number_densities_on == False:
             for i, nuclide in enumerate(self.nuclides):
                 if nuclide not in sf_data:
                     print(f"Warning: No data for {nuclide}, skipping.")
